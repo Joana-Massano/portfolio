@@ -225,6 +225,32 @@ body.en .diff-card .metric span[data-lang="en"]{display:block!important}
   font-family:'Geist Mono',monospace;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;
 }
 
+/* ============ GALERIA ESTETICA ============ */
+.gallery{background:var(--areia)}
+.gallery .section-head .label{color:var(--orange)}
+.gallery-note{
+  font-family:'Inter',sans-serif;font-size:0.92rem;color:var(--verde-mar-70);
+  font-style:italic;max-width:52ch;margin-top:8px;
+}
+.gallery-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px;
+}
+.gallery-item{
+  position:relative;aspect-ratio:4/5;border-radius:4px;overflow:hidden;
+  background:var(--linho);cursor:pointer;
+}
+.gallery-item.tall{aspect-ratio:9/16;grid-row:span 2}
+.gallery-item img,.gallery-item video{width:100%;height:100%;object-fit:cover;display:block}
+.gallery-item .play-badge{position:absolute;bottom:10px;left:10px;width:28px;height:28px;border-radius:50%;background:var(--verde-mar-90);display:flex;align-items:center;justify-content:center;pointer-events:none;transition:opacity .3s}
+.gallery-item .play-badge svg{width:10px;height:10px;fill:var(--areia);margin-left:2px}
+.gallery-item.playing .play-badge{opacity:0}
+.gallery-empty{
+  border:1px dashed var(--verde-mar-40);border-radius:4px;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  aspect-ratio:4/5;padding:20px;
+  font-family:'Geist Mono',monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--verde-mar-40);
+}
+
 /* ============ COLABORACAO ============ */
 .collab{background:var(--areia)}
 .collab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px}
@@ -291,6 +317,7 @@ body.en .diff-card .metric span[data-lang="en"]{display:block!important}
   .case-media{justify-content:flex-start}
   .collab-grid{grid-template-columns:1fr}
   .aud-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:480px){
   .hero-stats{gap:24px}
@@ -447,9 +474,30 @@ body.en .diff-card .metric span[data-lang="en"]{display:block!important}
       </div>
     </article>
 
-    <div class="case-empty">
-      <span data-lang="pt">+ próximos casos entram aqui — mesma estrutura</span>
-      <span data-lang="en">+ next cases go here — same structure</span>
+  </div>
+</section>
+
+<!-- ============ GALERIA ESTETICA (oculta até haver material — trocar display:none por display:block) ============ -->
+<section class="gallery" id="estetica" style="display:none">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label" data-lang="pt">o olhar</span>
+      <span class="label" data-lang="en">the eye</span>
+      <h2 class="display" data-lang="pt">a estética, <span class="pop">antes</span> do briefing.</h2>
+      <h2 class="display" data-lang="en">the aesthetic, <span class="pop">before</span> the brief.</h2>
+      <p class="gallery-note" data-lang="pt">Uma amostra do tipo de olhar e de conteúdo que produzo — luz, detalhe, ritmo. Não são trabalhos contratados: são o registo visual que trago a cada propriedade.</p>
+      <p class="gallery-note" data-lang="en">A sample of the kind of eye and content I produce — light, detail, rhythm. These aren't commissioned work: they're the visual register I bring to every property.</p>
+    </div>
+    <div class="gallery-grid">
+      <!-- placeholders: substituir por ficheiros reais quando a Joana enviar -->
+      <div class="gallery-empty"><span data-lang="pt">imagem / clip</span><span data-lang="en">image / clip</span></div>
+      <div class="gallery-empty"><span data-lang="pt">imagem / clip</span><span data-lang="en">image / clip</span></div>
+      <div class="gallery-empty"><span data-lang="pt">imagem / clip</span><span data-lang="en">image / clip</span></div>
+      <div class="gallery-empty"><span data-lang="pt">imagem / clip</span><span data-lang="en">image / clip</span></div>
+      <div class="gallery-empty"><span data-lang="pt">imagem / clip</span><span data-lang="en">image / clip</span></div>
+      <div class="gallery-empty"><span data-lang="pt">imagem / clip</span><span data-lang="en">image / clip</span></div>
+      <div class="gallery-empty"><span data-lang="pt">imagem / clip</span><span data-lang="en">image / clip</span></div>
+      <div class="gallery-empty"><span data-lang="pt">imagem / clip</span><span data-lang="en">image / clip</span></div>
     </div>
   </div>
 </section>
