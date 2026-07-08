@@ -19,6 +19,9 @@
   --linho:#EDE3D4;
   --texto-claro:#F7EFE5;
   --texto-escuro:#1A3530;
+  /* largura dos clips do carrossel; a altura do reel deriva daqui
+     para as duas colunas ficarem alinhadas */
+  --clip-w:clamp(126px,13vw,172px);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -171,13 +174,15 @@ body.en .diff-card .metric span[data-lang="en"]{display:block!important}
 .media-link:hover{opacity:1}
 .media-link svg{width:11px;height:11px;fill:none;stroke:var(--aqua);stroke-width:2}
 .case-reel{
-  width:clamp(160px,18vw,232px);aspect-ratio:9/16;border-radius:4px;overflow:hidden;
+  /* altura = 3 clips 4:5 + 2 gaps de 14px, para alinhar com o carrossel */
+  height:calc(var(--clip-w)*3.75 + 28px);
+  aspect-ratio:9/16;border-radius:4px;overflow:hidden;
   background:#243f3a;position:relative;cursor:pointer;flex-shrink:0;
 }
 .case-reel video,.case-reel img.poster{width:100%;height:100%;object-fit:cover;display:block}
 .case-carousel{display:flex;flex-direction:column;gap:14px}
 .case-clip{
-  width:clamp(96px,10vw,128px);aspect-ratio:4/5;border-radius:4px;overflow:hidden;
+  width:var(--clip-w);aspect-ratio:4/5;border-radius:4px;overflow:hidden;
   background:#243f3a;position:relative;cursor:pointer;
 }
 .case-clip video,.case-clip img.poster{width:100%;height:100%;object-fit:cover;display:block}
@@ -321,8 +326,8 @@ body.en .diff-card .metric span[data-lang="en"]{display:block!important}
 }
 @media(max-width:480px){
   .hero-stats{gap:24px}
-  .case-reel{width:150px}
-  .case-clip{width:88px}
+  :root{--clip-w:96px}
+  .case-media{flex-wrap:wrap}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -470,6 +475,34 @@ body.en .diff-card .metric span[data-lang="en"]{display:block!important}
           <span data-lang="pt">carrossel 3 vídeos</span><span data-lang="en">3-video carousel</span>
           <span data-lang="pt">menção orgânica</span><span data-lang="en">organic mention</span>
           <span data-lang="pt">2 noites scouting</span><span data-lang="en">2-night scouting</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- CASE: Casa Cuatro -->
+    <article class="case" style="margin-top:clamp(48px,6vw,80px)">
+      <div class="case-media">
+        <figure class="case-reel-wrap">
+          <div class="case-reel" onclick="togglePlay(this)">
+            <img class="poster" src="assets/casa_cuatro_poster.jpg" alt="Casa Cuatro reel">
+            <video src="assets/casa_cuatro_reel.mp4" loop playsinline preload="none"></video>
+            <div class="play-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <a class="media-link" href="https://www.instagram.com/reel/DaTVGtwNNzm/" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+            <span data-lang="pt">reel · ver no ig</span><span data-lang="en">reel · view on ig</span>
+            <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+          </a>
+        </figure>
+      </div>
+      <div class="case-info">
+        <div class="eyebrow"><span data-lang="pt">boutique hotel · adults recommended</span><span data-lang="en">boutique hotel · adults recommended</span></div>
+        <h3 class="display">casa cuatro</h3>
+        <div class="case-loc">CHICLANA DE LA FRONTERA · CÁDIZ · ANDALUCÍA</div>
+        <p class="case-desc" data-lang="pt">Um boutique hotel escondido em Chiclana de la Frontera, a minutos das praias de La Barrosa. Reel dedicado aos espaços exteriores: a piscina entre pinheiros e estrelícias gigantes, o duche exterior, o silêncio.</p>
+        <p class="case-desc" data-lang="en">A hidden boutique hotel in Chiclana de la Frontera, minutes from La Barrosa beach. A reel dedicated to the outdoor spaces: the pool among pine trees and giant strelitzias, the outdoor shower, the silence.</p>
+        <div class="case-deliver">
+          <span data-lang="pt">reel espaços exteriores</span><span data-lang="en">outdoor spaces reel</span>
+          <span data-lang="pt">menção orgânica</span><span data-lang="en">organic mention</span>
         </div>
       </div>
     </article>
