@@ -643,6 +643,7 @@ function setLang(l){
   document.getElementById('btn-pt').classList.toggle('active',l==='pt');
   document.getElementById('btn-en').classList.toggle('active',l==='en');
   document.documentElement.lang=l;
+  try{ const u=new URL(window.location); u.searchParams.set('lang',l); history.replaceState(null,'',u); }catch(e){}
 }
 function togglePlay(el){
   const v=el.querySelector('video');
@@ -658,6 +659,18 @@ function togglePlay(el){
     el.classList.remove('playing');
   }
 }
+</script>
+
+<script>
+(function(){
+  try{
+    var p=new URLSearchParams(window.location.search).get('lang');
+    var h=(window.location.hash||'').replace('#','');
+    var l=(p||h||'pt').toLowerCase();
+    if(l!=='en'&&l!=='pt') l='pt';
+    if(typeof setLang==='function') setLang(l);
+  }catch(e){}
+})();
 </script>
 </body>
 </html>
